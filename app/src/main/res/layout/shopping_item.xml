@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="9"
         android:text="Name"
-        android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,7 +26,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Amount"
-        android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/ivMinus"

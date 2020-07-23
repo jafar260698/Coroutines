@@ -3,6 +3,7 @@ package com.example.coroutines
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coroutines.ViewModel.ShoppingViewModel
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
       val factory=
           ShoppingViewModelFactory(repository)
 
-       viewModel=ViewModelProviders.of(this,factory).get(ShoppingViewModel::class.java)
+       viewModel= ViewModelProvider(this,factory).get(ShoppingViewModel::class.java)
 
         val adapter=ShoppingItemAdapter(listOf(),viewModel)
         rvShoppingItems.layoutManager=LinearLayoutManager(this)
@@ -35,7 +36,8 @@ class MainActivity : AppCompatActivity() {
 
         })
         fab.setOnClickListener {
-            AddShoppingItemDialog(this,object :addDialogInterface{
+            AddShoppingItemDialog(this,
+                object :addDialogInterface{
                 override fun onAddButtonClicked(item: ShoppingItem) {
                     viewModel.insert(item)
                 }
